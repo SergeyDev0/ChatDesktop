@@ -8,7 +8,17 @@
     <link rel="stylesheet" href="./fonts/fonts.css">
     <title>Chat Desktop</title>
 </head>
-<body>
+<body id="body" onclick="hide()">
+
+    <div class="modal-settings hide">
+        <div class="modal-settings__header">
+            <button class="modal-settings__close">
+                <?xml version="1.0"?><svg class="modal-settings__close-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="tiny" height="24px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="24px" xml:space="preserve"><path d="M12,9.059V6.5c0-0.256-0.098-0.512-0.293-0.708C11.512,5.597,11.256,5.5,11,5.5s-0.512,0.097-0.707,0.292L4,12l6.293,6.207  C10.488,18.402,10.744,18.5,11,18.5s0.512-0.098,0.707-0.293S12,17.755,12,17.5v-2.489c2.75,0.068,5.755,0.566,8,3.989v-1  C20,13.367,16.5,9.557,12,9.059z"/></svg>
+            </button>
+            <h3 class="modal-settings__header-title">Settings</h3>
+        </div>
+    </div>
+
     <div class="channel-bar">
         <div class="wrapper__channels">
             <a class="channel__item active" href="#">
@@ -37,541 +47,560 @@
             <img class="add__icon" src="./img/add.svg" alt="add">
         </a>
     </div>
-    <div class="sidebar">
-        <div class="sidebar__wrapper">
-            <div class="header__sidebar">
-                <a href="#" class="nomad-list__wrapper">
-                    <h2 class="nomad-list__text">Nomad List</h2>
-                    <img class="nomad-list__img" src="./img/arrow-down-ic.svg" alt="arrow">
-                </a>
-                <a class="settings" href="#">
-                    <img class="settings__img" src="./img/settings-ic.svg" alt="settings">
-                </a>
-            </div>
-            <div class="treads">
-                <a class="treads__link" href="#">
-                    <img class="treads__img" src="./img/mes-ic.svg" alt="message">
-                    <h2 class="treads__text">All treads</h2>
-                </a>
-            </div>
-            <div class="sidebar__channel">
-                <div class="sidebar__channel-num">
-                    <h2 class="sidebar__channel-title">CHANNELS</h2>
-                    <p class="sidebar__channel-quality">11</p>
+    <div class="sidebar-wrapper">
+        <div class="sidebar">
+            <ul class="settings__dropdown none">
+                <li class="settings__dropdown-item settings-open"><img class="settings-icons" src="./icons/settings.svg" alt="settings">Настройки</li>
+                <li class="settings__dropdown-item"><img class="settings-icons moon" src="./icons/loon-icon.svg" alt="settings">
+                    Ночной режим
+                    <div class="wrapper-checkbox">
+                        <label class="checkbox-ios">
+                            <input type="checkbox">
+                            <span class="checkbox-ios-switch" data-label-on="On" data-label-off="Off"></span>
+                        </label>
+                    </div>
+                </li>
+                <li class="settings__dropdown-item"><img class="settings-icons report" src="./icons/report.svg" alt="settings">Report</li>
+                <li class="settings__dropdown-item"><img class="settings-icons" src="./icons/write.svg" alt="settings">Написать разработчику</li>
+                <li class="settings__dropdown-description">Chat Desktop, 2021-2022</li>
+            </ul>
+            <div class="sidebar__wrapper">
+                <div class="header__sidebar">
+                    <a href="#" class="nomad-list__wrapper">
+                        <h2 class="nomad-list__text">Nomad List</h2>
+                        <img class="nomad-list__img" src="./img/arrow-down-ic.svg" alt="arrow">
+                    </a>
+                    <div class="wrapper-dropdown">
+                        <a class="settings" href="#">
+                            <img class="settings__img" src="./img/settings-ic.svg" alt="settings">
+                        </a>
+                    </div>
                 </div>
-                <ul class="sidebar__channel-list">
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link active" href="#"># general</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># support</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># marketing</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># thailand</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># bali</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># poland</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># australia</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># jobs</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># startups</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># italy</a></li>
-                    <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># freelance</a></li>
-                </ul>
-            </div>
-            <div class="sidebar__friends">
-                <div class="sidebar__friends-num">
-                    <h2 class="sidebar__friends-title">FRIENDS</h2>
-                    <p class="sidebar__friends-quality">82</p>
+                <div class="treads">
+                    <a class="treads__link" href="#">
+                        <img class="treads__img" src="./img/mes-ic.svg" alt="message">
+                        <h2 class="treads__text">All treads</h2>
+                    </a>
                 </div>
-                <ul class="sidebar__friends-list">
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link online" href="#">
-                            <img class="friends-list__img" src="./img/ava1.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Orlando Diggs</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link online" href="#">
-                            <img class="friends-list__img" src="./img/ava2.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Carmen Velasco</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Marie Jensen</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Alex Lee</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Leo Gill</h3>
-                        </a>
-                    </li>
-                    <li class="sidebar__friends-list__item">
-                        <a class="friends-list__link" href="#">
-                            <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
-                            <h3 class="friends-list__full-name">Britney Cooper</h3>
-                        </a>
-                    </li>
-                </ul>
+                <div class="sidebar__channel">
+                    <div class="sidebar__channel-num">
+                        <h2 class="sidebar__channel-title">CHANNELS</h2>
+                        <p class="sidebar__channel-quality">11</p>
+                    </div>
+                    <ul class="sidebar__channel-list">
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link active" href="#"># general</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># support</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># marketing</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># thailand</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># bali</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># poland</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># australia</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># jobs</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># startups</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># italy</a></li>
+                        <li class="sidebar__channel-list__item"><a class="channel-list__link" href="#"># freelance</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar__friends">
+                    <div class="sidebar__friends-num">
+                        <h2 class="sidebar__friends-title">FRIENDS</h2>
+                        <p class="sidebar__friends-quality">82</p>
+                    </div>
+                    <ul class="sidebar__friends-list">
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link online" href="#">
+                                <img class="friends-list__img" src="./img/ava1.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Orlando Diggs</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link online" href="#">
+                                <img class="friends-list__img" src="./img/ava2.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Carmen Velasco</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava3.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Marie Jensen</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava4.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Alex Lee</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava5.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Leo Gill</h3>
+                            </a>
+                        </li>
+                        <li class="sidebar__friends-list__item">
+                            <a class="friends-list__link" href="#">
+                                <img class="friends-list__img" src="./img/ava6.png" alt="avatar">
+                                <h3 class="friends-list__full-name">Britney Cooper</h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -588,10 +617,19 @@
                    <input class="nav__search" type="text" placeholder="Search...">
                 </div>
                 <a class="nav__notifications" href="#">
-                    <img class="nav__notifications-img" src="./img/notifications.svg" alt="notifications">
+                    <svg class="nav__notifications-img notifications" width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M9.27466 14.1334C9.05945 15.1983 8.12301 15.9999 6.99999 15.9999C5.87696 15.9999 4.94052 15.1983 4.7254 14.1334H0.5L2.3571 10.4V6.66659C2.3571 4.08932 4.43584 1.99997 6.99999 1.99997C9.56421 1.99997 11.6429 4.08932 11.6429 6.66659V10.4L13.5 14.1334H9.27466ZM6.99999 15.0667C7.60557 15.0667 8.11566 14.6759 8.3076 14.1334H5.69246C5.88431 14.6759 6.39441 15.0667 6.99999 15.0667ZM10.7143 10.4V6.66659C10.7143 4.60488 9.05135 2.93333 6.99999 2.93333C4.94861 2.93333 3.2857 4.60488 3.2857 6.66659V10.4L1.89281 13.2H12.1071L10.7143 10.4Z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 1.00001C15.6046 1.00001 16.5 1.89542 16.5 3.00001C16.5 4.10455 15.6046 5.00001 14.5 5.00001C13.3954 5.00001 12.5 4.10455 12.5 3.00001C12.5 1.89542 13.3954 1.00001 14.5 1.00001Z" fill="#FD4948"/>
+                    </svg>
                 </a>
                 <a class="nav__menu" href="#">
-                    <img class="nav__menu-img" src="./img/menu.svg" alt="menu">
+                    <svg class="nav__menu-img menu" width="6" height="17" viewBox="0 0 6 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.3">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25001 7C4.21649 7 4.99997 7.78349 4.99997 8.75C4.99997 9.7165 4.21649 10.5 3.25001 10.5C2.28353 10.5 1.49997 9.7165 1.49997 8.75C1.49997 7.78349 2.28353 7 3.25001 7Z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 1.00001C4.21648 1.00001 4.99996 1.7835 4.99996 2.75C4.99996 3.7165 4.21648 4.5 3.25 4.5C2.28353 4.5 1.49997 3.7165 1.49997 2.75C1.49997 1.7835 2.28353 1.00001 3.25 1.00001Z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25 13C4.21648 13 4.99996 13.7835 4.99996 14.75C4.99996 15.7165 4.21648 16.5 3.25 16.5C2.28353 16.5 1.49997 15.7165 1.49997 14.75C1.49997 13.7835 2.28353 13 3.25 13Z"/>
+                        </g>
+                    </svg>
                 </a>
             </div>
         </header>
@@ -680,17 +718,21 @@
         <div class="content__input">
             <div class="content__input-bar">
                 <div class="record-media">
-                    <button class="input-bar__media">
-                        <img class="media-img" src="./img/media.svg" alt="media">
-                    </button>
+                    <input class="input-settings" name="file" type="file" id="file">
+                    <label for="file" class="input-bar__media">
+                        <svg class="media-img" width="12" height="20" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M5.34058e-05 3.7503C5.34058e-05 1.67924 2.01478 0.000244141 4.49998 0.000244141C6.98528 0.000244141 8.99992 1.67924 8.99992 3.7503V15.0003C8.99992 16.3811 7.65677 17.5002 5.99994 17.5002C4.34311 17.5002 2.99996 16.3811 2.99996 15.0003V5.00032H4.49998V15.0003C4.49998 15.6906 5.17148 16.2503 5.99994 16.2503C6.82839 16.2503 7.49998 15.6906 7.49998 15.0003V3.7503C7.49998 2.36956 6.15682 1.25028 4.49998 1.25028C2.84307 1.25028 1.49992 2.36956 1.49992 3.7503V15.0003C1.49992 17.0714 3.51466 18.7504 5.99994 18.7504C8.48522 18.7504 10.5 17.0714 10.5 15.0003V2.5003H11.9999V15.6253C11.6302 18.091 9.05917 20.0004 5.99994 20.0004C2.94087 20.0004 0.369805 18.091 -0.00012207 15.6253L5.34058e-05 3.7503Z"/>
+                        </svg>                            
+                    </label>
                     <button class="input-bar__record">
-                        <img class="record-img" src="./img/record.svg" alt="record">
+                        <svg class="record-img" width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M5.52284 20.0003C5.18387 20.0003 4.90908 19.7205 4.90908 19.3753C4.90908 19.0302 5.18387 18.7504 5.52284 18.7504H6.13642V17.4723C3.10673 17.1938 0.541663 14.8744 0 11.8752H1.22734C1.78593 14.3794 4.12235 16.2502 6.75008 16.2502C9.37773 16.2502 11.7141 14.3794 12.2727 11.8752H13.5001C12.9583 14.8744 10.3933 17.1938 7.36366 17.4723V18.7504H7.97732C8.3162 18.7504 8.591 19.0302 8.591 19.3753C8.591 19.7205 8.3162 20.0003 7.97732 20.0003H5.52284ZM6.75008 15.0004C4.3777 15.0004 2.45458 13.0416 2.45458 10.6254V4.37547C2.45458 1.9592 4.3777 0.000244141 6.75008 0.000244141C9.12229 0.000244141 11.0455 1.9592 11.0455 4.37547V10.6254C11.0455 13.0416 9.12229 15.0004 6.75008 15.0004ZM9.81824 4.37547C9.81824 2.64956 8.44454 1.25028 6.75008 1.25028C5.05553 1.25028 3.68184 2.64956 3.68184 4.37547V10.6254C3.68184 12.3513 5.05553 13.7503 6.75008 13.7503C8.44454 13.7503 9.81824 12.3513 9.81824 10.6254V4.37547Z"/>
+                        </svg>                            
                     </button>
                 </div>
                 <input class="input-bar__input" type="text" placeholder="Message in #general">
                 <div class="smile">
-                    <button class="input-bar__smiles">
-                        <img class="smiles-img" src="./img/smile.svg" alt="smiles">
+                        <svg class="smiles" id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0, 0, 400,400"><g id="svgg"><path opacity="0.4" id="path0" d="M124.660 14.000 C 49.900 46.570,-7.519 143.576,2.731 219.994 C 29.750 421.433,291.993 466.798,379.885 285.238 C 457.284 125.352,286.261 -56.401,124.660 14.000 M291.633 52.119 C 404.011 115.279,401.110 299.232,286.881 353.437 C 156.674 415.224,23.723 331.142,31.586 191.981 C 39.318 55.145,171.002 -15.679,291.633 52.119 M120.398 144.520 C 105.885 162.008,115.884 200.000,135.000 200.000 C 151.638 200.000,162.771 168.857,154.157 146.409 C 146.385 126.157,136.115 125.582,120.398 144.520 M245.447 148.591 C 237.821 172.618,248.447 200.000,265.396 200.000 C 284.195 200.000,293.968 161.830,279.602 144.520 C 263.366 124.957,252.539 126.247,245.447 148.591 M100.000 264.466 C 100.000 287.211,158.988 319.925,200.000 319.925 C 241.012 319.925,300.000 287.211,300.000 264.466 C 300.000 251.271,294.992 252.204,269.893 270.076 C 232.955 296.378,167.896 295.200,127.500 267.497 C 103.693 251.171,100.000 250.764,100.000 264.466 " stroke="none" fill-rule="evenodd"></path></g></svg>                        
                     </button>
                 </div>
             </div>
@@ -736,5 +778,7 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
