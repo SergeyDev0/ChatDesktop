@@ -801,4 +801,12 @@ header{
         font-size: 16px;
     }
 }
+@media screen and (max-width: 1350px) {
+    .message__text{
+        font-size: 12px;
+    }
+    .message__name, .message__time{
+        font-size: 15px;
+    }
+}
 
