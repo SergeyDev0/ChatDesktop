@@ -62,5 +62,29 @@ nightMode.addEventListener('click', function(){
         $(document.querySelector('.modal-settings__close-icon')).toggleClass('modal-settings__close-icon-night');
         $(document.querySelector('.modal-settings')).toggleClass('modal-settings-night');
         $(document.querySelector('.profile')).toggleClass('profile-night');
+        $(document.querySelector('.input-bar__media')).toggleClass('input-bar__media-night');
+        $(document.querySelector('.input-bar__record')).toggleClass('input-bar__record-night');
+        $(document.querySelector('.input-bar__smiles')).toggleClass('input-bar__smiles-night');
     }
+})
+
+
+// channels
+channelsList = document.querySelectorAll('.channel-list__link');
+let g = 1;
+channelsList.forEach(m => {
+    m.addEventListener('click', function(){
+        m.classList.add('active');
+        g = 0;
+        channelsList.forEach(p => {
+            if(g == 0){
+                p.classList.remove('active');
+                m.classList.add('active');
+                setTimeout(() => {
+                    g = 1;
+                }, 100);
+            }
+        })
+        console.log(g)
+    })
 })

@@ -27,7 +27,7 @@ img{
 .content::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(146, 146, 146, 0.788); 
+    background: rgba(146, 146, 146, 0.381); 
     padding: 2px;
 }
 .content::-webkit-scrollbar-thumb:window-inactive {
@@ -55,6 +55,10 @@ body{
     display: flex;
     font-family: 'Lato', sans-serif;
     overflow-y: hidden;
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
 }
 .night{
     background-image: url(./img/background-black.jpg);
@@ -62,6 +66,7 @@ body{
 a{
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 ul{
     list-style-type: none;
@@ -89,6 +94,7 @@ ul{
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    
 }
 .channel__item{
     width: 100%;
@@ -319,7 +325,8 @@ header{
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
-    position: relative;color: white;
+    position: relative;
+    color: black;
 }
 .nav__search-wrapper::after{
     display: block;
@@ -345,6 +352,7 @@ header{
 }
 .input-bar__input{
     background-color: inherit;
+    color: black;
 }
 .input-bar__input-night{
     color: white;
@@ -352,6 +360,7 @@ header{
 .nav__search-night{
     background-color: rgba(241, 241, 241, 0.2) !important;
     border: #7c7c7c;
+    color: white !important;
 }
 .content__bar-night {
     background-color: rgba(17, 17, 17, 0.99) !important;
@@ -441,6 +450,12 @@ header{
     -ms-transition: .25s;
     -o-transition: .25s;
     cursor: pointer;
+}
+.input-bar__media-night:hover, .input-bar__record-night:hover, .input-bar__smiles-night:hover{
+    background-color: rgba(146, 146, 146, 0.288) !important;
+}
+.input-bar__media-night:active, .input-bar__record-night:active, .input-bar__smiles-night:active{
+    background-color: rgba(146, 146, 146, 0.588) !important;
 }
 .input-bar__smiles{
     padding: 3px 5px;
